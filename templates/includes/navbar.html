@@ -1,0 +1,50 @@
+{% load static %}
+ <!-- ***** Header Area Start ***** -->
+<header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav ">
+                
+                    <a href="{% url 'home' %}" class="logo">
+                        <img src="{% static 'images/logo.png' %}">
+                    </a>
+                
+                
+                    <!-- <form action="" class="search" method="GET" style="width: 45%;">
+                        <div class="input-group ">
+                            <input type="search" class="form-control buscar"  placeholder="Buscar..." name="keyword">
+                            <div class="input-group-append">
+                                <button class="btn btn-dark bg-dark" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+                
+                
+                    <ul class="nav">
+                        <li><a href="{% url 'home' %}" class="active">Home</a></li>
+                        <li class="submenu">
+                            <a href="javascript:;">Categorías</a>
+                            <ul>
+                
+                                {% for categorie in categories %}
+                                <li><a href="{% url 'products_by_category' categorie.slug %}">{{ categorie.category_name }}</a></li>
+                                {% endfor %}
+                
+                            </ul>
+                        </li>
+                    </ul>
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+
+                
+            </nav>
+            </div>
+        </div>
+    </div>
+    
+</header>
+<!-- ***** Header Area End ***** -->

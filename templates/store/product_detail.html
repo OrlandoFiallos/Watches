@@ -1,0 +1,53 @@
+{% extends 'head.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- ***** Product Area Starts ***** -->
+<section class="section" id="product">
+    <div class="container separate-top">
+        <div class="row">
+            <div class="col-lg-6 ">
+                <div class="left-images d-flex justify-content-center">
+                    <img src="{{ product.images.url }}" alt="{{ product.product_name }}">
+                    
+                </div>
+                {% if product_gallery %}
+                <ul class="thumbmini d-flex justify-content-center mb-3">
+                    <li>
+                        <a href="{{ product.images.url }}" target="left-images">
+                            <img src="{{ product.images.url }}" alt="Product Image" >
+                        </a>
+                        {% for item in product_gallery %}
+                        <a href="{{ item.image.url }}" target="left-images">
+                            <img src="{{ item.image.url }}" alt="Product Image" >
+                        </a>
+                        {% endfor %}
+
+                    </li>
+                </ul>
+                {% endif %}
+                    
+            </div>
+            <div class="col-lg-6">
+                <div class="right-content">
+                    <h4>{{ product.product_name }}</h4>
+                    <span class="price">L {{ product.price }}</span>
+                    <div class="quote">
+                        {% for feature in features %}
+                        <p>- {{ feature }}.</p>
+                        {% endfor %}
+                    </div>
+                    <span>{{ product.description }}</span>
+                    
+                    <div class=" total mt-3">
+                        <div class="main-border-button"><a href="{% url 'buy' %}">Comprar</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Product Area Ends ***** -->
+{% endblock content %}
+    
